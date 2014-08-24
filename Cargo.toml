@@ -1,0 +1,5 @@
+[package]
+
+name = "string-match"
+version = "0.0.1"
+authors = ["Robin Gloster <robin@loc-com.de>"]
