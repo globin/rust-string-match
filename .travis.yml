@@ -1,10 +1,10 @@
-#env:
-  #global:
-    #- secure: X8BWpokkOkfvt0ZzHOpSYCT+ZR37H/sLgiOxaE1unkGgZsjz0T3CfNnVVVLutlXzb2LDO1vBKdLbr5NyOEO6CBtPGZ2f9o2l/S4ACmkhaYt3s5aE+WCpCv3NGrHizZgawI38ZNnTvHThFm5j1MRCc1Fkdizc6/4aYKCs36hte8o=
+env:
+  global:
+    - secure: jNWCPpEX4xaZgLH5O7j1yhGozU/rzmf9YrT7brdCcqbYKKTjNt7997dunJNaN00NIwQx9WXWfgljScom3huiCr0Uix9ltjueAP2j/gU9MWgZWRvhBnSJIGcgQah6tmKQgvlX2JkpIfbLDlq336fhMUyUC96rA1SHcievc/mNwPM=
 
 language: rust
 
-#after_script:
-  #- cargo doc
-  #- cp -R target/doc doc
-  #- curl http://www.rust-ci.org/artifacts/put?t=$RUSTCI_TOKEN | sh
+after_script:
+  - cargo doc
+  - cp -R target/doc doc
+  - curl http://www.rust-ci.org/artifacts/put?t=$RUSTCI_TOKEN | sh
