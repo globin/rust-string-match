@@ -8,7 +8,7 @@ pub fn lcs_length(s1: &str, s2: &str) -> u32 {
 
     for i in range(0, s1.len()) {
         for j in range(0, s2.len()) {
-            *table.get_mut(i + 1).get_mut(j + 1) = if s1.char_at(i) == s2.char_at(j) {
+            table[i + 1][j + 1] = if s1.char_at(i) == s2.char_at(j) {
                 result = max(result, table[i][j] as u32 + 1);
                 table[i][j] + 1
             } else {

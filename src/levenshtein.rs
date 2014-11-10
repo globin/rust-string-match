@@ -9,11 +9,11 @@ pub fn levenshtein_distance(s1: &str, s2: &str) -> u32 {
     let mut v1 : Vec<u32> = Vec::from_elem(s2.len() + 1, 0);
 
     for i in range(0, s1.len()) {
-        *v1.get_mut(0) = i as u32 + 1;
+        v1[0] = i as u32 + 1;
 
         for j in range(0, s2.len()) {
             let cost = if s1.char_at(i) == s2.char_at(j) { 0u32 } else { 1 };
-            *v1.get_mut(j + 1) = min(min(v1[j] + 1, v0[j + 1] + 1), v0[j] + cost);
+            v1[j + 1] = min(min(v1[j] + 1, v0[j + 1] + 1), v0[j] + cost);
         }
 
         v0 = v1.clone();
