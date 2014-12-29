@@ -39,19 +39,19 @@ mod test {
 
     #[test]
     fn empty() {
-        assert_eq!(0u32, lcs_length("test", ""))
+        assert_eq!(0u32, lcs_length("test", ""));
         assert_eq!(0u32, lcs_length("", "test"))
     }
 
     #[test]
     fn distance_test() {
-        assert_eq!(1u32, lcs_length("fnord", "foo"))
+        assert_eq!(1u32, lcs_length("fnord", "foo"));
         assert_eq!(4u32, lcs_length("aatest", "bbtest1"))
     }
 
     #[test]
     fn similarity_test() {
-        assert_eq!(1f64, lcs_similarity("test", "test"))
+        assert_eq!(1f64, lcs_similarity("test", "test"));
         assert_eq!(0.8f64, lcs_similarity("test", "test1"))
     }
 

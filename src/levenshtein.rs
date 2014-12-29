@@ -41,19 +41,19 @@ mod test {
 
     #[test]
     fn empty() {
-        assert_eq!(4u32, levenshtein_distance("test", ""))
+        assert_eq!(4u32, levenshtein_distance("test", ""));
         assert_eq!(4u32, levenshtein_distance("", "test"))
     }
 
     #[test]
     fn distance_test() {
-        assert_eq!(3u32, levenshtein_distance("fnord", "foo"))
+        assert_eq!(3u32, levenshtein_distance("fnord", "foo"));
         assert_eq!(1u32, levenshtein_distance("test", "test1"))
     }
 
     #[test]
     fn similarity_test() {
-        assert_eq!(1f64, levenshtein_similarity("test", "test"))
+        assert_eq!(1f64, levenshtein_similarity("test", "test"));
         assert_eq!(0.8f64, levenshtein_similarity("test", "test1"))
     }
 
