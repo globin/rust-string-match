@@ -4,7 +4,7 @@ use std::iter::repeat;
 pub fn lcs_length(s1: &str, s2: &str) -> u32 {
     if s1.is_empty() || s2.is_empty() { return 0u32; }
 
-    let mut table : Vec<Vec<uint>> = range(0, s1.len() + 1).map(|_| repeat(0).take(s2.len() + 1).collect()).collect();
+    let mut table : Vec<Vec<uint>> = (0..(s1.len() + 1)).map(|_| repeat(0).take(s2.len() + 1).collect()).collect();
     let mut result = 0u32;
 
     for i in range(0, s1.len()) {
