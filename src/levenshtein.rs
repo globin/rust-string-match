@@ -1,12 +1,13 @@
 use std::cmp::{min, max};
+use std::iter::repeat;
 
 pub fn levenshtein_distance(s1: &str, s2: &str) -> u32 {
     if s1 == s2 { return 0u32; }
     if s1.is_empty() { return s2.len() as u32; }
     if s2.is_empty() { return s1.len() as u32; }
 
-    let mut v0 : Vec<u32> = Vec::from_fn(s2.len() + 1, |idx| idx as u32);
-    let mut v1 : Vec<u32> = Vec::from_elem(s2.len() + 1, 0);
+    let mut v0 : Vec<u32> = range(0, s2.len() + 1).map(|idx| idx as u32).collect();
+    let mut v1 : Vec<u32> = repeat(0).take(s2.len() + 1).collect();
 
     for i in range(0, s1.len()) {
         v1[0] = i as u32 + 1;
