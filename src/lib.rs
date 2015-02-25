@@ -1,4 +1,3 @@
-#![feature(slicing_syntax)]
 #[cfg(test)]
 extern crate test;
 

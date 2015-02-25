@@ -1,18 +1,17 @@
 use std::cmp::{min, max};
-use std::iter::repeat;
 
 pub fn levenshtein_distance(s1: &str, s2: &str) -> u32 {
     if s1 == s2 { return 0u32; }
     if s1.is_empty() { return s2.len() as u32; }
     if s2.is_empty() { return s1.len() as u32; }
 
-    let mut v0 : Vec<u32> = range(0, s2.len() + 1).map(|idx| idx as u32).collect();
-    let mut v1 : Vec<u32> = repeat(0).take(s2.len() + 1).collect();
+    let mut v0 : Vec<u32> = (0..s2.len() + 1).map(|idx| idx as u32).collect();
+    let mut v1 : Vec<u32> = vec![0; s2.len() + 1];
 
-    for i in range(0, s1.len()) {
+    for i in 0..s1.len() {
         v1[0] = i as u32 + 1;
 
-        for j in range(0, s2.len()) {
+        for j in 0..s2.len() {
             let cost = if s1.char_at(i) == s2.char_at(j) { 0u32 } else { 1 };
             v1[j + 1] = min(min(v1[j] + 1, v0[j + 1] + 1), v0[j] + cost);
         }
@@ -55,7 +54,11 @@ mod test {
     #[test]
     fn similarity_test() {
         assert_eq!(1f64, levenshtein_similarity("test", "test"));
-        assert_eq!(0.8f64, levenshtein_similarity("test", "test1"))
+        assert_eq!(0.8f64, levenshtein_similarity("test", "test1"));
+        assert_eq!(levenshtein_similarity("test", "tesg"), 0.75);
+        assert_eq!(levenshtein_similarity("test", "test1"), 0.8);
+        assert_eq!(levenshtein_similarity("test", "tes"), 0.75);
+        assert_eq!(levenshtein_similarity("test", "tesg1"), 0.6);
     }
 
 

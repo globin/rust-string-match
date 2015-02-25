@@ -4,11 +4,11 @@ use std::iter::repeat;
 pub fn lcs_length(s1: &str, s2: &str) -> u32 {
     if s1.is_empty() || s2.is_empty() { return 0u32; }
 
-    let mut table : Vec<Vec<uint>> = (0..(s1.len() + 1)).map(|_| repeat(0).take(s2.len() + 1).collect()).collect();
+    let mut table : Vec<Vec<usize>> = (0..(s1.len() + 1)).map(|_| repeat(0).take(s2.len() + 1).collect()).collect();
     let mut result = 0u32;
 
-    for i in range(0, s1.len()) {
-        for j in range(0, s2.len()) {
+    for i in 0..s1.len() {
+        for j in 0..s2.len() {
             table[i + 1][j + 1] = if s1.char_at(i) == s2.char_at(j) {
                 result = max(result, table[i][j] as u32 + 1);
                 table[i][j] + 1
