@@ -13,8 +13,8 @@ pub fn fuzzy_jaccard_similarity(s1: &str, s2: &str, delta: f64) -> f64 {
 }
 
 fn fuzzy_overlap(s1: &str, s2: &str, delta: f64) -> (FuzzyOverlapMap, usize, usize) {
-    let s1_tokens = s1.split(|&: c: char| c.is_whitespace()).collect::<Vec<&str>>();
-    let s2_tokens = s2.split(|&: c: char| c.is_whitespace()).collect::<Vec<&str>>();
+    let s1_tokens = s1.split(|c: char| c.is_whitespace()).collect::<Vec<&str>>();
+    let s2_tokens = s2.split(|c: char| c.is_whitespace()).collect::<Vec<&str>>();
 
     let mut similarities : FuzzyOverlapMap = HashMap::new();
 
